@@ -5,7 +5,7 @@ supported_datasets = ['cora', 'citeseer', 'pubmed', 'physics', 'amazon_ratings']
 supported_specified_task = ['cora']
 parser = argparse.ArgumentParser()
 
-parser.add_argument("--dataset", type=str, default="cora")
+parser.add_argument("--dataset", type=str, default="citeseer")
 current_path = os.path.abspath(__file__)
 dataset_path = os.path.join(os.path.dirname(current_path), 'datasets')
 root_dir = os.path.join(dataset_path, 'raw_data')
@@ -44,7 +44,7 @@ parser.add_argument("--least_samples", type=int, default=5)
 parser.add_argument("--dirichlet_try_cnt", type=int, default=1000)
 
 parser.add_argument('--noise_type', type=str, default='uniform', choices=['clean', 'pair', 'uniform'], help='Noise type')
-parser.add_argument('--noise_rate', type=float, default=0.5, help='Noise rate')
+parser.add_argument('--noise_rate', type=float, default=0.2, help='Noise rate')
 parser.add_argument('--target_client_idx', type=int, nargs='+', default=[0,1,2,3,4,5,6,7,8,9], help='Target client index')
 
 parser.add_argument('--mlp_out_dim', type=int, default=0,help='MLP output dim')
