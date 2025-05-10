@@ -42,7 +42,7 @@ class BaseServer:
         self.model.eval()
         with torch.no_grad():
             outputs = self.model(self.data)
-            out, _ = outputs
+            out, _, _, _, _ = outputs
             test_pred = out[self.data.test_mask].argmax(dim=1)
             test_true = self.data.y[self.data.test_mask]
             test_acc = test_pred.eq(test_true).float().mean().item()
